@@ -1,6 +1,7 @@
 import { Button, IconButton, Snackbar } from "@mui/material"
 import { Fragment, useState } from "react"
 import CloseIcon from '@mui/icons-material/Close';
+import Header from "../Header.jsx"
 
 export function ExcluirMotoristas() {
 
@@ -50,6 +51,7 @@ export function ExcluirMotoristas() {
 
     return (
         <>
+        <Header />
             <h1>Exclusão de Motoristas</h1>
             <div>
                 <label>ID: </label>
