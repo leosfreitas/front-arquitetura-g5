@@ -14,7 +14,7 @@ export default function Header() {
                         <Link to="/motorista">Motoristas</Link>
                     </li>
                     <li>
-                        <Link to="/viajens">Viagens</Link>
+                        <Link to="/viagens">Viagens</Link>
                     </li>
                 </ul>
             </nav>
