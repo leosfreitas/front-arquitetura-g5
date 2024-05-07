@@ -11,7 +11,6 @@ export function CadastrarMotoristas() {
     const [placaVeiculo, setPlacaVeiculo] = useState("");
     const [modeloVeiculo, setModeloVeiculo] = useState("");
     const [precoViagem, setPrecoViagem] = useState("");
-    const [statusOcupacao, setStatusOcupacao] = useState("");
     const [open, setOpen] = useState(false);
 
     const handleClose = (event, reason) => {
@@ -43,8 +42,7 @@ export function CadastrarMotoristas() {
           'cpf': cpf,
           'placaVeiculo': placaVeiculo,
           'modeloVeiculo': modeloVeiculo,
-          'precoViagem': precoViagem,
-          'statusOcupacao': statusOcupacao
+          'precoViagem': precoViagem
         };
     
         fetch('http://localhost:8080/motoristas', {
@@ -72,7 +70,6 @@ export function CadastrarMotoristas() {
                 <input type='text' placeholder="Placa do Veículo" value={placaVeiculo} onChange={e => setPlacaVeiculo(e.target.value)} />
                 <input type='text' placeholder="Modelo do Veículo" value={modeloVeiculo} onChange={e => setModeloVeiculo(e.target.value)} />
                 <input type='text' placeholder="Preço da Viagem" value={precoViagem} onChange={e => setPrecoViagem(e.target.value)} />
-                <input type='text' placeholder="Status de Ocupação" value={statusOcupacao} onChange={e => setStatusOcupacao(e.target.value)} />
                 <Button variant="contained" onClick={() => click()}>Cadastrar</Button>
             </form>
         </div>

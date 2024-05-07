@@ -13,7 +13,6 @@ export function EditarMotoristas() {
     const [placaVeiculo, setPlacaVeiculo] = useState()
     const [modeloVeiculo, setModeloVeiculo] = useState()
     const [precoViagem, setPrecoViagem] = useState()
-    const [statusOcupacao, setStatusOcupacao] = useState()
 
     const [open, setOpen] = useState(false)
 
@@ -47,8 +46,7 @@ export function EditarMotoristas() {
           'cpf': cpf,
           'placaVeiculo': placaVeiculo,
           'modeloVeiculo': modeloVeiculo,
-          'precoViagem': precoViagem,
-          'statusOcupacao': statusOcupacao
+          'precoViagem': precoViagem
 
         }
     
@@ -94,10 +92,6 @@ export function EditarMotoristas() {
                   <div className="editar-input-container">
                       <label className="editar-label">Preço Viagem: </label>
                       <input className="editar-input" type='text' value={precoViagem} onChange={e => setPrecoViagem(e.target.value)} />
-                  </div>
-                  <div className="editar-input-container">
-                      <label className="editar-label">Status Ocupação: </label>
-                      <input className="editar-input" type='text' value={statusOcupacao} onChange={e => setStatusOcupacao(e.target.value)} />
                   </div>
                   <Button className="editar-button" onClick={click}>Editar</Button> 
               </div>

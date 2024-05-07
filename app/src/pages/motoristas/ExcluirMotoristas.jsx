@@ -15,7 +15,7 @@ export function ExcluirMotoristas() {
 
         setOpen(false);
     }
-    
+
     const action = (
         <Fragment>
             <Button color="secondary" size="small" onClick={handleClose}>
@@ -32,20 +32,14 @@ export function ExcluirMotoristas() {
         </Fragment>
     )
 
+
     function click() {
-        fetch('http://localhost:8080/motoristas/' + id, {
-            method: 'DELETE'
-        })
-        .then(response => {
-            if (response.ok) {
-                setOpen(true)
-            }
-            else {
-                throw new Error('Erro ao excluir um motorista!')
-            }
-        })
-        .catch(error => {
-            alert(error.message)
+        fetch('http://localhost:8080/motoristas/exclusao/' + id, {
+        method: 'DELETE'
+        }).then(response => {
+        setOpen(true)
+        }).catch(response => {
+        alert('Erro ao excluir motorista!')
         })
     }
 
