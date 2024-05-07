@@ -36,7 +36,7 @@ export function ViagensMotoristas() {
     const [data, setData] = useState([])
 
     function click() {
-        fetch('http://localhost:8081/motorista/' + id, {
+        fetch('http://localhost:8081/viagens/motorista/' + id, {
         method: 'GET'
         }).then(response => {
         return response.json()
