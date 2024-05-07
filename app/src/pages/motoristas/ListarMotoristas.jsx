@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Header from "../Header.jsx"
 
 export function ListarMotoristas() {
 
@@ -22,6 +23,7 @@ export function ListarMotoristas() {
     
     return(
         <>
+        <Header />
             <h1>Listagem de Motoristas</h1>
 
             <div className="card">

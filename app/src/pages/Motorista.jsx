@@ -1,20 +1,22 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Header from "./Header.jsx";
+import "./style/Motorista.css"; // Import the CSS file
 
 export default function Motorista() {
     return (
         <>
-        <Header />
-        <h1>Motoristas</h1>
+            <Header />
+            <div className="container"> {/* Added a class name for the container */}
+                <h1>Motoristas</h1>
 
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <Link style={{ marginBottom: '10px' }} to="/motorista/cadastro">Cadastrar Motorista</Link>
-            <Link style={{ marginBottom: '10px' }} to="/motorista/listagem">Listar Motoristas</Link>
-            <Link style={{ marginBottom: '10px' }} to="/motorista/edicao">Editar Motorista</Link>
-            <Link to="/motorista/exclusao">Excluir Motorista</Link>
-        </div>
-
+                <div>
+                    <Link className="link" to="/motorista/cadastro">Cadastrar Motorista</Link>
+                    <Link className="link" to="/motorista/listagem">Listar Motoristas</Link>
+                    <Link className="link" to="/motorista/edicao">Editar Motorista</Link>
+                    <Link className="link" to="/motorista/exclusao">Excluir Motorista</Link>
+                </div>
+            </div>
         </>
-    )
+    );
 }

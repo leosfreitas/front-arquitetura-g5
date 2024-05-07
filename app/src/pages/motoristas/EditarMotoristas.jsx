@@ -1,6 +1,7 @@
 import { Button, IconButton, Snackbar } from "@mui/material"
 import { Fragment, useState } from "react"
 import CloseIcon from '@mui/icons-material/Close';
+import Header from "../Header.jsx"
 
 export function EditarMotoristas() {
 
@@ -64,6 +65,7 @@ export function EditarMotoristas() {
 
     return (
         <>
+        <Header />
 
             <h1>Edição de Motorista</h1>
 
