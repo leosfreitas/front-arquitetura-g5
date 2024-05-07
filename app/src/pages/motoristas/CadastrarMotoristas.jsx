@@ -1,24 +1,23 @@
-import { Button, IconButton, Snackbar } from "@mui/material"
-import { Fragment, useState } from "react"
+import { Button, IconButton, Snackbar } from "@mui/material";
+import { Fragment, useState } from "react";
 import CloseIcon from '@mui/icons-material/Close';
-import Header from "../Header.jsx"
+import Header from "../Header.jsx";
+import  '../style/Cadastro.css';
 
 export function CadastrarMotoristas() {
 
-    const [nome, setNome] = useState()
-    const [cpf, setCpf] = useState()
-    const [placaVeiculo, setPlacaVeiculo] = useState()
-    const [modeloVeiculo, setModeloVeiculo] = useState()
-    const [precoViagem, setPrecoViagem] = useState()
-    const [statusOcupacao, setStatusOcupacao] = useState()
-
-    const [open, setOpen] = useState(false)
+    const [nome, setNome] = useState("");
+    const [cpf, setCpf] = useState("");
+    const [placaVeiculo, setPlacaVeiculo] = useState("");
+    const [modeloVeiculo, setModeloVeiculo] = useState("");
+    const [precoViagem, setPrecoViagem] = useState("");
+    const [statusOcupacao, setStatusOcupacao] = useState("");
+    const [open, setOpen] = useState(false);
 
     const handleClose = (event, reason) => {
         if (reason === 'clickaway') {
           return;
         }
-    
         setOpen(false);
     };
 
@@ -46,7 +45,7 @@ export function CadastrarMotoristas() {
           'modeloVeiculo': modeloVeiculo,
           'precoViagem': precoViagem,
           'statusOcupacao': statusOcupacao
-        }
+        };
     
         fetch('http://localhost:8080/motoristas', {
           method: 'POST',
@@ -59,25 +58,23 @@ export function CadastrarMotoristas() {
         }).catch(response => {
           alert('Erro no cadastro do motorista!')
           alert(response.status)
-        })
+        });
     }
 
     return (
       <>
         <div className="card">
-        <Header />
-
+            <Header />
             <h1>Cadastro de Motoristas</h1>
-
-            Nome: <input type='text' value={nome} onChange={e => setNome(e.target.value)} ></input><br></br>
-            CPF: <input type='text' value={cpf} onChange={e => setCpf(e.target.value)} ></input><br></br>
-            Placa do Veículo: <input type='text' value={placaVeiculo} onChange={e => setPlacaVeiculo(e.target.value)} ></input><br></br>
-            Modelo do Veículo: <input type='text' value={modeloVeiculo} onChange={e => setModeloVeiculo(e.target.value)} ></input><br></br>
-            Preço da Viagem: <input type='text' value={precoViagem} onChange={e => setPrecoViagem(e.target.value)} ></input><br></br>
-            Status de Ocupação: <input type='text' value={statusOcupacao} onChange={e => setStatusOcupacao(e.target.value)} ></input><br></br>
-            <br></br>
-
-            <Button variant="contained" onClick={() => click()}>Cadastrar</Button>
+            <form className="form">
+                <input type='text' placeholder="Nome" value={nome} onChange={e => setNome(e.target.value)} />
+                <input type='text' placeholder="CPF" value={cpf} onChange={e => setCpf(e.target.value)} />
+                <input type='text' placeholder="Placa do Veículo" value={placaVeiculo} onChange={e => setPlacaVeiculo(e.target.value)} />
+                <input type='text' placeholder="Modelo do Veículo" value={modeloVeiculo} onChange={e => setModeloVeiculo(e.target.value)} />
+                <input type='text' placeholder="Preço da Viagem" value={precoViagem} onChange={e => setPrecoViagem(e.target.value)} />
+                <input type='text' placeholder="Status de Ocupação" value={statusOcupacao} onChange={e => setStatusOcupacao(e.target.value)} />
+                <Button variant="contained" onClick={() => click()}>Cadastrar</Button>
+            </form>
         </div>
         <Snackbar
             open={open}

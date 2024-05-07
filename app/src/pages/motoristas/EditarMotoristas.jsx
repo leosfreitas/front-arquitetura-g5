@@ -2,6 +2,8 @@ import { Button, IconButton, Snackbar } from "@mui/material"
 import { Fragment, useState } from "react"
 import CloseIcon from '@mui/icons-material/Close';
 import Header from "../Header.jsx"
+import  '../style/Editar.css'
+
 
 export function EditarMotoristas() {
 
@@ -64,48 +66,51 @@ export function EditarMotoristas() {
     }
 
     return (
-        <>
-        <Header />
-
-            <h1>Edição de Motorista</h1>
-
-            <div>
-                <label>ID: </label>
-                <input type='text' value={id} onChange={e => setId(e.target.value)} />
-            </div>
-            <div>
-                <label>Nome: </label>
-                <input type='text' value={nome} onChange={e => setNome(e.target.value)} />
-            </div>
-            <div>
-                <label>CPF: </label>
-                <input type='text' value={cpf} onChange={e => setCpf(e.target.value)} />
-            </div>
-            <div>
-                <label>Placa Veículo: </label>
-                <input type='text' value={placaVeiculo} onChange={e => setPlacaVeiculo(e.target.value)} />
-            </div>
-            <div>
-                <label>Modelo Veículo: </label>
-                <input type='text' value={modeloVeiculo} onChange={e => setModeloVeiculo(e.target.value)} />
-            </div>
-            <div>
-                <label>Preço Viagem: </label>
-                <input type='text' value={precoViagem} onChange={e => setPrecoViagem(e.target.value)} />
-            </div>
-            <div>
-                <label>Status Ocupação: </label>
-                <input type='text' value={statusOcupacao} onChange={e => setStatusOcupacao(e.target.value)} />
-            </div>
-            <Button onClick={click}>Editar</Button> 
-            <Snackbar
-                open={open}
-                autoHideDuration={6000}
-                onClose={handleClose}
-                message="Motorista editado com sucesso!"
-                action={action}
-            />
-        </>
-    )
+      <>
+          <Header />
+          <div className="editar-container">
+              <h1>Edição de Motorista</h1>
+              <div className="editar-form">
+                  <div className="editar-input-container">
+                      <label className="editar-label">ID: </label>
+                      <input className="editar-input" type='text' value={id} onChange={e => setId(e.target.value)} />
+                  </div>
+                  <div className="editar-input-container">
+                      <label className="editar-label">Nome: </label>
+                      <input className="editar-input" type='text' value={nome} onChange={e => setNome(e.target.value)} />
+                  </div>
+                  <div className="editar-input-container">
+                      <label className="editar-label">CPF: </label>
+                      <input className="editar-input" type='text' value={cpf} onChange={e => setCpf(e.target.value)} />
+                  </div>
+                  <div className="editar-input-container">
+                      <label className="editar-label">Placa Veículo: </label>
+                      <input className="editar-input" type='text' value={placaVeiculo} onChange={e => setPlacaVeiculo(e.target.value)} />
+                  </div>
+                  <div className="editar-input-container">
+                      <label className="editar-label">Modelo Veículo: </label>
+                      <input className="editar-input" type='text' value={modeloVeiculo} onChange={e => setModeloVeiculo(e.target.value)} />
+                  </div>
+                  <div className="editar-input-container">
+                      <label className="editar-label">Preço Viagem: </label>
+                      <input className="editar-input" type='text' value={precoViagem} onChange={e => setPrecoViagem(e.target.value)} />
+                  </div>
+                  <div className="editar-input-container">
+                      <label className="editar-label">Status Ocupação: </label>
+                      <input className="editar-input" type='text' value={statusOcupacao} onChange={e => setStatusOcupacao(e.target.value)} />
+                  </div>
+                  <Button className="editar-button" onClick={click}>Editar</Button> 
+              </div>
+          </div>
+          <Snackbar
+              open={open}
+              autoHideDuration={6000}
+              onClose={handleClose}
+              message="Motorista editado com sucesso!"
+              action={action}
+          />
+      </>
+  );
+  
     
 }
