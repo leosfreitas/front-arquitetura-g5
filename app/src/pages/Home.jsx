@@ -7,8 +7,8 @@ export default function Home() {
         <>
             <Header />
             <div className="content">
-                <h1>Olá</h1>
-                <Link to="/motorista">Motoristas</Link>
+                <h1>Olá, bem vindo!</h1>
+                
             </div>
         </>
     );
