@@ -7,6 +7,8 @@ import { CadastrarMotoristas } from "./pages/motoristas/CadastrarMotoristas";
 import { EditarMotoristas } from "./pages/motoristas/EditarMotoristas";
 import { ListarMotoristas } from "./pages/motoristas/ListarMotoristas";
 import { ExcluirMotoristas } from "./pages/motoristas/ExcluirMotoristas";
+import { ViagensMotoristas } from './pages/viagens/ViagensMotorista'
+import Viagem from './pages/Viagem'
 
 import './App.css'
 
@@ -20,6 +22,9 @@ function App() {
         <Route path="/motorista/edicao/" element={<EditarMotoristas />}/>
         <Route path="/motorista/listagem" element={<ListarMotoristas />}/>
         <Route path="/motorista/exclusao/" element={<ExcluirMotoristas />}/>
+        
+        <Route path="/viagens" element={<Viagem />}/>
+        <Route path="/viagens/motorista" element={<ViagensMotoristas/>} />
       </Routes>
     </>
   )
