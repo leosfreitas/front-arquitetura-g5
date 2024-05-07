@@ -2,11 +2,12 @@ import { Button, IconButton, Snackbar } from "@mui/material";
 import { Fragment, useState } from "react";
 import CloseIcon from '@mui/icons-material/Close';
 import Header from "../Header.jsx";
-import  '../style/Cadastro.css';
+import '../style/ViagensMotorista.css'
 
 export function ViagensMotoristas() {
 
     const [id, setId] = useState();
+    const [open, setOpen] = useState(false);
 
     const handleClose = (event, reason) => {
         if (reason === 'clickaway') {
@@ -32,21 +33,17 @@ export function ViagensMotoristas() {
         </Fragment>
     )
 
-    
+    const [data, setData] = useState([])
+
     function click() {
         fetch('http://localhost:8081/motorista/' + id, {
-            method: 'GET'
-        })
-        .then(response => {
-            if (response.ok) {
-                setOpen(true)
-            }
-            else {
-                throw new Error('Erro ao listar as viagens do motorista!')
-            }
-        })
-        .catch(error => {
-            alert(error.message)
+        method: 'GET'
+        }).then(response => {
+        return response.json()
+        }).then(data => {
+        setData(data)
+        }).catch(response => {
+        alert('Erro ao listar as viagens do motorista!')
         })
     }
 
@@ -66,8 +63,34 @@ export function ViagensMotoristas() {
                 message="Viagens listadas com sucesso!"
                 action={action}
             />
+            <div className="card">
+                <table className="table">
+                    <tbody>
+                        <tr>
+                        <td>ID</td>
+                        <td>Origem</td>
+                        <td>Destino</td>
+                        <td>Data Início</td>
+                        <td>Duração</td>
+                        <td>Preço</td>
+                        <td>Status</td>
+                        </tr>            
+                        {
+                        data.map((viagem, index) => {
+                            return <tr key={index}>
+                            <td>{viagem.id}</td>
+                            <td>{viagem.origem}</td>
+                            <td>{viagem.destino}</td>
+                            <td>{viagem.dataInicio}</td>
+                            <td>{viagem.horasViagem}</td>
+                            <td>{viagem.precoTotal}</td>
+                            <td>{viagem.status}</td>
+                            </tr>
+                        })
+                        }
+                    </tbody>
+                </table>
+            </div>
         </>
     )
-
-
 }
